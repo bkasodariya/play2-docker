@@ -1,4 +1,4 @@
-FROM ubuntu:16.10
+FROM centos:latest
 
 MAINTAINER cousins <bkasodariya@gmail.com> 
 
