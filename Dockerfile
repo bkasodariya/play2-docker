@@ -14,7 +14,11 @@ RUN curl -O https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-ac
 
 RUN unzip typesafe-activator-1.3.12.zip -d / && rm typesafe-activator-1.3.12.zip && chmod a+x /activator-1.3.12/activator
 
-ENV PATH $PATH:/activator-1.3.12 EXPOSE 9000 8888 RUN mkdir /app
+ENV PATH $PATH:/activator-1.3.12 
+
+EXPOSE 9000 8888 
+
+RUN mkdir /app
 
 WORKDIR /app
 
