@@ -12,9 +12,9 @@ RUN yum update -y && yum install -y unzip
 
 RUN curl -O https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-activator-1.3.12.zip
 
-RUN unzip typesafe-activator-1.3.12.zip -d / && rm typesafe-activator-1.3.12.zip && chmod a+x /activator-1.3.12/activator
+RUN unzip typesafe-activator-1.3.12.zip -d / && rm typesafe-activator-1.3.12.zip && chmod a+x /activator-dist-1.3.12/bin/activator
 
-ENV PATH $PATH:/activator-1.3.12 
+ENV PATH $PATH:/activator-dist-1.3.12/bin
 
 EXPOSE 9000 8888 
 
