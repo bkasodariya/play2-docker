@@ -2,22 +2,17 @@ FROM centos:latest
 
 MAINTAINER cousins <bkasodariya@gmail.com> 
 
-ENV JAVA_VERSION 8u31
-ENV BUILD_VERSION b13
+ENV	HOME /root 
+ENV	LANG en_US.UTF-8 
+ENV	LC_ALL en_US.UTF-8
 
 RUN yum update -y
 
-RUN yum -y install wget
+RUN yum install -y curl; yum upgrade -y; yum update -y;  yum clean all
 
-RUN wget --no-cookies --no-check-certificate --header "Cookie: oraclelicense=accept-securebackup-cookie" "http://download.oracle.com/otn-pub/java/jdk/$JAVA_VERSION-$BUILD_VERSION/jdk-$JAVA_VERSION-linux-x64.rpm" -O /tmp/jdk-8-linux-x64.rpm
+ENV JDK_VERSION 8u11 ENV JDK_BUILD_VERSION b12 RUN curl -LO "http://download.oracle.com/otn-pub/java/jdk/$JDK_VERSION-$JDK_BUILD_VERSION/jdk-$JDK_VERSION-linux-x64.rpm" -H 'Cookie: oraclelicense=accept-securebackup-cookie' && rpm -i jdk-$JDK_VERSION-linux-x64.rpm; rm -f jdk-$JDK_VERSION-linux-x64.rpm; yum clean all
 
-RUN yum -y install /tmp/jdk-8-linux-x64.rpm
-
-RUN alternatives --install /usr/bin/java jar /usr/java/latest/bin/java 200000
-RUN alternatives --install /usr/bin/javaws javaws /usr/java/latest/bin/javaws 200000
-RUN alternatives --install /usr/bin/javac javac /usr/java/latest/bin/javac 200000
-
-ENV JAVA_HOME /usr/java/latest
+ENV JAVA_HOME /usr/java/default
 
 RUN yum update -y && yum install -y unzip
 
