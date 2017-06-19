@@ -4,7 +4,8 @@ MAINTAINER cousins <bkasodariya@gmail.com>
 
 RUN yum update -y
 
-RUN yum install -y wget && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u11-b12/jdk-8u11-linux-x64.rpm
+
+RUN curl -LO "http://download.oracle.com/otn-pub/java/jdk/8u11-b12/jdk-8u11-linux-x64.rpm" -H 'Cookie: oraclelicense=accept-securebackup-cookie' && rpm -i jdk-jdk-8u11-linux-x64.rpm; rm -f jdk-8u11-linux-x64.rpm; yum clean all
 
 RUN rpm -ivh jdk-8u11-linux-x64.rpm && rm jdk-8u11-linux-x64.rpm
 
