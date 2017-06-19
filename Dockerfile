@@ -8,7 +8,7 @@ RUN yum install -y wget && wget http://download.oracle.com/otn-pub/jdk/8u131-b11
 
 RUN rpm -ivh jdk-8u11-linux-x64.rpm && rm jdk-8u11-linux-x64.rpm
 
-yum -y install rsync
+RUN yum -y install rsync
 
 RUN yum update -y && yum install -y unzip
 
