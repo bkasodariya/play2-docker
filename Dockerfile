@@ -8,8 +8,6 @@ RUN yum install -y wget && wget --no-check-certificate --no-cookies --header "Co
 
 RUN rpm -ivh jdk-8u11-linux-x64.rpm && rm jdk-8u11-linux-x64.rpm
 
-RUN yum install -y rsync
-
 RUN yum update -y && yum install -y unzip
 
 RUN curl -O https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-activator-1.3.12.zip
