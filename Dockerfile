@@ -6,6 +6,8 @@ RUN yum update -y
 
 RUN curl -LO "http://download.oracle.com/otn-pub/java/jdk/8u11-b12/jdk-8u11-linux-x64.rpm" -H 'Cookie: oraclelicense=accept-securebackup-cookie' && rpm -i jdk-jdk-8u11-linux-x64.rpm; rm -f jdk-8u11-linux-x64.rpm; yum clean all
 
+yum install -y rsync
+
 RUN yum update -y && yum install -y unzip
 
 RUN curl -O https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-activator-1.3.12.zip
