@@ -2,17 +2,13 @@ FROM centos:latest
 
 MAINTAINER cousins <bkasodariya@gmail.com> 
 
-ENV	HOME /root 
-ENV	LANG en_US.UTF-8 
-ENV	LC_ALL en_US.UTF-8
-
 RUN yum update -y
 
-RUN yum install -y curl; yum upgrade -y; yum update -y;  yum clean all
+RUN yum install -y wget && wget --no-check-certificate --no-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" http://download.oracle.com/otn-pub/java/jdk/8u11-b12/jdk-8u11-linux-x64.rpm
 
-ENV JDK_VERSION 8u11 ENV JDK_BUILD_VERSION b12 RUN curl -LO "http://download.oracle.com/otn-pub/java/jdk/$JDK_VERSION-$JDK_BUILD_VERSION/jdk-$JDK_VERSION-linux-x64.rpm" -H 'Cookie: oraclelicense=accept-securebackup-cookie' && rpm -i jdk-$JDK_VERSION-linux-x64.rpm; rm -f jdk-$JDK_VERSION-linux-x64.rpm; yum clean all
+RUN rpm -ivh jdk-8u11-linux-x64.rpm && rm jdk-8u11-linux-x64.rpm
 
-ENV JAVA_HOME /usr/java/default
+RUN yum install -y rsync
 
 RUN yum update -y && yum install -y unzip
 
