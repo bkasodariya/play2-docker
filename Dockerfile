@@ -8,6 +8,8 @@ RUN yum install -y wget && wget -c --header "Cookie: oraclelicense=accept-secure
 
 RUN rpm -ivh jdk-8u131-linux-x64.rpm && rm jdk-8u131-linux-x64.rpm
 
+RUN yum -y install openssh openssh-server openssh-clients openssl-libs 
+
 RUN yum -y install rsync
 
 RUN yum update -y && yum install -y unzip
