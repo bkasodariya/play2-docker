@@ -14,6 +14,8 @@ RUN yum -y install rsync
 
 RUN yum update -y && yum install -y unzip
 
+RUN yum -y install epel-release
+
 RUN yum -y install nodejs npm; yum clean all
 
 RUN curl -O https://downloads.typesafe.com/typesafe-activator/1.3.12/typesafe-activator-1.3.12.zip
